@@ -40,6 +40,6 @@ jobs:
 
     - name: Deploy using Helm
       run: |
-        helm upgrade --install fastapiapp ./fastapi-chart \
-          --set image.repository=${{ secrets.ACR_NAME }}.azurecr.io/${{ secrets.IMAGE_NAME }} \
-          --set image.tag=${{ env.IMAGE_TAG }}
+        helm upgrade --install fastapiapp ./helm/fastapi-chart \
+        --set image.repository=${{ secrets.ACR_NAME }}.azurecr.io/${{ secrets.IMAGE_NAME }} \
+        --set image.tag=${{ env.IMAGE_TAG }}
