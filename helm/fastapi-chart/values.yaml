@@ -1,0 +1,27 @@
+replicaCount: 2
+
+image:
+  repository: fastapidockeracr.azurecr.io/fastapiapp  # 🔹 Your ACR image repo
+  tag: v1                                               # 🔹 Change for new versions
+  pullPolicy: IfNotPresent
+
+containerPort: 8000
+
+service:
+  type: LoadBalancer
+  port: 80
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
+
+# Optional environment variables for your app
+env:
+  - name: ENVIRONMENT
+    value: "production"
+  - name: APP_NAME
+    value: "FastAPI App on AKS"

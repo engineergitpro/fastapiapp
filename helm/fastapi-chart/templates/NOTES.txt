@@ -1,0 +1,11 @@
+🚀 FastAPI App Deployed Successfully!
+
+To access your app, run:
+
+  kubectl get svc
+
+Then open your browser at:
+
+  http://<EXTERNAL-IP>/
+
+If EXTERNAL-IP shows <pending>, wait 1–2 minutes for Azure LoadBalancer to allocate a public IP.
