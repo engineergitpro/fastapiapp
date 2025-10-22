@@ -37,10 +37,10 @@ jobs:
       - name: Set up Helm
         uses: azure/setup-helm@v4
 
-      - name: Deploy using Helm
+      - name: Deploy to AKS with Helm
         run: |
-          helm upgrade --install fastapiapp ./helm/fastapi-chart \
-            --set image.repository=${{ secrets.ACR_NAME }}.azurecr.io/${{ secrets.IMAGE_NAME }} \
-            --set image.tag=${{ env.IMAGE_TAG }} \
-            --set image.pullPolicy=Always \
-            --atomic --timeout 5m
+          helm upgrade --install fastapi-release ./helm/fastapi-chart \
+          --set image.repository=${{ secrets.ACR_NAME }}.azurecr.io/${{ secrets.IMAGE_NAME }} \
+          --set image.tag=${{ env.IMAGE_TAG }} \
+          --set image.pullPolicy=Always \
+          --atomic --timeout 5m --cleanup-on-fail
