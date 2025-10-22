@@ -1,7 +1,7 @@
 replicaCount: 2
 
 image:
-  repository: fastapidockeracr.azurecr.io/fastapiapp  # 🔹 Your ACR image repo
+  repository: aksclusteregistry.azurecr.io/fastapiapp  # 🔹 Your ACR image repo
   tag: v1                                               # 🔹 Change for new versions
   pullPolicy: IfNotPresent
 
