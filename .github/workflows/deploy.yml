@@ -37,6 +37,10 @@ jobs:
       - name: Set up Helm
         uses: azure/setup-helm@v4
 
+      - name: Clean up old Helm locks
+        run: |
+            kubectl delete secret -l owner=helm -n default || true
+
       - name: Deploy to AKS with Helm
         run: |
           helm upgrade --install fastapi-release ./helm/fastapi-chart \
