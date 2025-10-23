@@ -1,8 +1,8 @@
 replicaCount: 2
 
 image:
-  repository: aksclusteregistry.azurecr.io/fastapiapp  # 🔹 Your ACR image repo
-  tag: v1                                               # 🔹 Change for new versions
+  repository: aksclusteregistry.azurecr.io/fastapiapp
+  tag: v1
   pullPolicy: IfNotPresent
 
 containerPort: 8000
@@ -12,14 +12,13 @@ service:
   port: 80
 
 resources:
-  limits:
+  requests:
     cpu: 100m
     memory: 128Mi
-  requests:
+  limits:
     cpu: 250m
     memory: 256Mi
 
-# Optional environment variables for your app
 env:
   - name: ENVIRONMENT
     value: "production"
